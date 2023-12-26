@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "anki-deck-from-text"
+version = "0.1.0"
+description = "Generate Anki decks and cards from annotations on a text file"
+authors = ["AndreMacedo88 <andre.lopes.macedo@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+genanki = "^0.13.1"
+click = "^8.1.7"
+pytest = "^7.4.3"
+nox = "^2023.4.22"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
