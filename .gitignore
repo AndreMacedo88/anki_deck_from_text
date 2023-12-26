@@ -1,1 +1,4 @@
 .vscode/
+.nox/
+.pytest*
+__pycache__/
