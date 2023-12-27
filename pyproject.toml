@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "anki-deck-from-text"
+name = "anki_deck_from_text"
 version = "0.1.0"
 description = "Generate Anki decks and cards from annotations on a text file"
 authors = ["AndreMacedo88 <andre.lopes.macedo@gmail.com>"]
