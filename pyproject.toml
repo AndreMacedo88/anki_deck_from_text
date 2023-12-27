@@ -9,9 +9,13 @@ readme = "README.md"
 python = "^3.12"
 genanki = "^0.13.1"
 click = "^8.1.7"
-pytest = "^7.4.3"
-nox = "^2023.4.22"
 
+
+[tool.poetry.group.dev.dependencies]
+nox = "^2023.4.22"
+nox-poetry = "^1.0.3"
+autopep8 = "^2.0.4"
+pytest = "^7.4.3"
 
 [build-system]
 requires = ["poetry-core"]
