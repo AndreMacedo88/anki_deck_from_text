@@ -1,0 +1,2 @@
+- die Katze = the cat
+- das Haus = the house
