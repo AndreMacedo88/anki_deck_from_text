@@ -1,5 +1,6 @@
 from anki_deck_from_text.parse_input import question_answer_split, generate_question_answer_dict
 
+
 class TestQuestionAnswerSplit:
     line = "- answer = question"
     question, answer = question_answer_split(line)

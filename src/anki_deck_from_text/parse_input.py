@@ -4,10 +4,11 @@ def question_answer_split(line):
     answer, question = line.split(" = ")
     return question, answer
 
-def to_dict(input):
+
+def generate_question_answer_dict(input):
     cards_details = dict()
     with open(input) as FileObj:
         for line in FileObj:
-           question, answer = question_answer_split(line) 
-           cards_details[question] = answer
+            question, answer = question_answer_split(line)
+            cards_details[question] = answer
     return cards_details
