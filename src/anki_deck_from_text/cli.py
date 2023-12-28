@@ -1,15 +1,14 @@
 import click
+from .parse_input import generate_question_answer_dict
 
 
 @click.command()
-@click.option('--count', default=1, help='Number of greetings.')
-@click.option('--name', prompt='Your name',
-              help='The person to greet.')
-def hello(count, name):
-    """Simple program that greets NAME for a total of COUNT times."""
-    for x in range(count):
-        click.echo(f"Hello {name}!")
-
-
-if __name__ == '__main__':
-    hello()
+@click.argument('input')
+@click.option('--separator', default=" = ", help="Characters that separate the front and back of the cards")
+def cli(input, separator):
+    """Generate Anki decks and cards from annotations on a text file"""
+    generate_question_answer_dict(
+        input=input,
+        separator=separator
+    )
+    click.echo("Finished")

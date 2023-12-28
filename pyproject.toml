@@ -17,6 +17,9 @@ nox-poetry = "^1.0.3"
 autopep8 = "^2.0.4"
 pytest = "^7.4.3"
 
+[tool.poetry.scripts]
+anki_deck_from_text = "anki_deck_from_text.cli:cli"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
