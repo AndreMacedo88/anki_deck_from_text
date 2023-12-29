@@ -1,4 +1,5 @@
 import os
+import pytest
 from anki_deck_from_text.parse_input import question_answer_split, generate_question_answer_dict
 
 
@@ -33,16 +34,21 @@ class TestQuestionAnswerSplitUtf8:
         assert self.question == "questiön"
 
 
+@pytest.mark.parametrize(
+    argnames="file_name",
+    argvalues=["test_md.md", "test_txt.txt"]
+)
 class TestGenerateQuestionAnswerDict:
     file_str = os.path.join(PARENT_DIR, "test_md.md")
 
-    def test_dict(self):
+    def test_dict(self, file_name):
+        file_path = os.path.join(PARENT_DIR, file_name)
         dict_expected = {
             "the girls": "die Mädchen",
             "the house": "das Haus"
         }
         dict_results = generate_question_answer_dict(
-            input=self.file_str,
+            input=file_path,
             separator=" = "
         )
         assert dict_results == dict_expected
