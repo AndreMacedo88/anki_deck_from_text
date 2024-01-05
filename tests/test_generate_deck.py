@@ -30,28 +30,30 @@ def test_note_incorrect_model():
             model_type="incorrect_type",
         )
 
+
 @pytest.fixture()
 def deck_test():
-     question_answer_dict = {
-            "the girls": "die Mädchen",
-            "the house": "das Haus"
-        }
-     deck = generate_deck_type_sound(
-            question_answer_dict=question_answer_dict,
-            deck_name="test_name",
-        )
-     yield deck
+    question_answer_dict = {
+        "the girls": "die Mädchen",
+        "the house": "das Haus"
+    }
+    deck = generate_deck_type_sound(
+        question_answer_dict=question_answer_dict,
+        deck_name="test_name",
+    )
+    yield deck
+
 
 class TestGenerateDeckTypeSound():
-        def test_notes_number(self, deck_test):
-            assert len(deck_test.notes) == 2
-        
-        def test_notes_fields(self, deck_test):
-            fields = [field for note in deck_test.notes for field in note.fields]
-            assert fields == [
-                 "the girls", "die Mädchen", "", "the house", "das Haus", ""
-                 ]
-            
-        def test_notes_model(self, deck_test):
-            models_name = [note.model.name for note in deck_test.notes]
-            assert models_name == ["Main model", "Main model"]
+    def test_notes_number(self, deck_test):
+        assert len(deck_test.notes) == 2
+
+    def test_notes_fields(self, deck_test):
+        fields = [field for note in deck_test.notes for field in note.fields]
+        assert fields == [
+            "the girls", "die Mädchen", "", "the house", "das Haus", ""
+        ]
+
+    def test_notes_model(self, deck_test):
+        models_name = [note.model.name for note in deck_test.notes]
+        assert models_name == ["Main model", "Main model"]
