@@ -1,6 +1,7 @@
 import os
 import pytest
-from anki_deck_from_text.parse_input import question_answer_split, generate_question_answer_dict
+from anki_deck_from_text.parse_input import question_answer_split, \
+    generate_question_answer_dict
 
 
 PARENT_DIR = os.path.dirname(os.path.realpath(__file__))
