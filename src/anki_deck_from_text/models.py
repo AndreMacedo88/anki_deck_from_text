@@ -16,7 +16,16 @@ MODEL_SOUND = genanki.Model(
             "qfmt": "{{Question}}<br>{{type:Answer}}",
             "afmt": "{{FrontSide}}<hr id='answer'>{{type:Answer}}<br>{{Sound}}",
         },
-    ])
+    ],
+    css=""".card {
+    font-family: arial;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+"""
+    )
 
 MODELS = {
     "sound": MODEL_SOUND,
