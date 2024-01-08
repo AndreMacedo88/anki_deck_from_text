@@ -23,4 +23,4 @@ def cli(input, deck_name, separator, output):
 
     write_package(deck, output)
 
-    click.echo("Finished")
+    click.echo("Finished generating the deck")
