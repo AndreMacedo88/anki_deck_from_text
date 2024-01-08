@@ -14,7 +14,7 @@ MODEL_SOUND = genanki.Model(
         {
             "name": "Card to type",
             "qfmt": "{{Question}}<br>{{type:Answer}}",
-            "afmt": "{{FrontSide}}<hr id='answer'>{{type:Answer}}<br>{{Sound}}",
+            "afmt": "{{FrontSide}}<hr id='answer'><br>{{Sound}}",
         },
     ],
     css=""".card {
@@ -25,7 +25,7 @@ MODEL_SOUND = genanki.Model(
     background-color: white;
 }
 """
-    )
+)
 
 MODELS = {
     "sound": MODEL_SOUND,
