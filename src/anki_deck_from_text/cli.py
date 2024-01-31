@@ -1,14 +1,23 @@
+"""
+Command-line interface for anki_deck_from_text
+"""
+
 import click
 from .parse_input import generate_question_answer_dict
 from .generate_deck import generate_deck, write_package
 
+CONTEXT_SETTINGS = dict(
+    help_option_names=['-h', '--help'],
+    show_default=True,
+)
 
-@click.command()
+
+@click.command(context_settings=CONTEXT_SETTINGS)
 @click.argument("input")
 @click.argument("output")
 @click.argument("deck_name")
 @click.option("--separator", default=" = ", help="Characters that separate the front and back of the cards")
-@click.option("--card_model", default="sound", 
+@click.option("--card_model", default="sound",
               help="""Anki card model to build the deck with. Available options are:
               `sound`
               """
