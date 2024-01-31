@@ -5,7 +5,7 @@ This was specially developed for those who use Anki to learn language vocabulary
 # Input structure
 1. The input must be some sort of non-compressed text file (.txt, .md, etc.)
 2. Every line to be converted to an Anki card must start with a dash and space `- `. Everything other line will be ignored
-3. The front and back of the cards are separated by a separator, such as ` = `
+3. The front and back of the cards are separated by a separator, such as ` = `. Use the `separator` option to set a custom separator.
 
 Example: 
 ```
@@ -24,5 +24,10 @@ pip install anki_deck_from_text
 # How to run
 
 ```bash
-anki_deck_from_text file.md out amazing_deck
+anki_deck_from_text file.md out amazing_deck_name
+```
+
+For all options run:
+```bash
+anki_deck_from_text --help
 ```

@@ -1,10 +1,19 @@
+"""
+Contains the Anki card models to include in the deck.
+
+Implement here your own models by generating a new model id and following an Anki card
+structure.
+Then add an entry to your new model to the `MODELS` variable. Your model can now be used
+in new decks by using the option `card_model` at the command-line.
+"""
+
 import genanki
 import random
 
-model_id = random.randrange(1 << 30, 1 << 31)
+model_id_sound = random.randrange(1 << 30, 1 << 31)
 MODEL_SOUND = genanki.Model(
-    model_id=model_id,
-    name="Main model",
+    model_id=model_id_sound,
+    name="Sound model",
     fields=[
         {"name": "Question"},
         {"name": "Answer"},
@@ -26,6 +35,15 @@ MODEL_SOUND = genanki.Model(
 }
 """
 )
+
+"""
+NEW MODELS IMPLEMENTATION AREA STARTS HERE
+"""
+
+
+"""
+NEW MODELS IMPLEMENTATION AREA STOPS HERE
+"""
 
 MODELS = {
     "sound": MODEL_SOUND,
