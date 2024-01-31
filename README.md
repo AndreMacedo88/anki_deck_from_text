@@ -24,5 +24,10 @@ pip install anki_deck_from_text
 # How to run
 
 ```bash
-anki_deck_from_text file.md out amazing_deck
+anki_deck_from_text file.md out amazing_deck_name
+```
+
+- For all options run:
+```bash
+anki_deck_from_text --help
 ```

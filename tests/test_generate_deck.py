@@ -3,7 +3,7 @@ import pytest
 from unittest.mock import MagicMock
 import itertools
 import time
-from anki_deck_from_text.generate_deck import create_note, generate_deck_type_sound
+from anki_deck_from_text.generate_deck import create_note, generate_deck
 
 PARENT_DIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -24,7 +24,7 @@ def test_note():
 
 def test_note_incorrect_model():
     with pytest.raises(ValueError):
-        note = create_note(
+        _ = create_note(
             question="House",
             answer="das Haus",
             model_type="incorrect_type",
@@ -37,9 +37,10 @@ def deck_test():
         "the girls": "die Mädchen",
         "the house": "das Haus"
     }
-    deck = generate_deck_type_sound(
+    deck = generate_deck(
         question_answer_dict=question_answer_dict,
         deck_name="test_name",
+        card_model="sound",
     )
     yield deck
 
@@ -56,4 +57,4 @@ class TestGenerateDeckTypeSound():
 
     def test_notes_model(self, deck_test):
         models_name = [note.model.name for note in deck_test.notes]
-        assert models_name == ["Main model", "Main model"]
+        assert models_name == ["Sound model", "Sound model"]

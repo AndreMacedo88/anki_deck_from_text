@@ -33,14 +33,14 @@ def create_deck(deck_name):
     return deck
 
 
-def generate_deck_type_sound(question_answer_dict, deck_name):
+def generate_deck(question_answer_dict, deck_name, card_model):
     deck = create_deck(deck_name=deck_name)
 
     for key, value in question_answer_dict.items():
         note = create_note(
             question=key,
             answer=value,
-            model_type="sound",
+            model_type=card_model,
         )
         deck.add_note(note)
 
