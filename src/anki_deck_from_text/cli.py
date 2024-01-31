@@ -8,7 +8,11 @@ from .generate_deck import generate_deck, write_package
 @click.argument("output")
 @click.argument("deck_name")
 @click.option("--separator", default=" = ", help="Characters that separate the front and back of the cards")
-@click.option("--card_model", default="sound", help="Characters that separate the front and back of the cards")
+@click.option("--card_model", default="sound", 
+              help="""Anki card model to build the deck with. Available options are:
+              `sound`
+              """
+              )
 def cli(input, output, deck_name, separator, card_model):
     """Generate and Anki deck from annotations on a text file"""
 
