@@ -1,3 +1,13 @@
+"""
+Contains functions that take a dictionary {question: answer} and write an Anki
+package (.apkg) with a deck containing the questions and answers.
+
+The deck current available formats are:
+- "sound"
+
+Check the models.py file for all models structure and implementation
+"""
+
 import random
 import genanki
 from anki_deck_from_text.models import MODELS

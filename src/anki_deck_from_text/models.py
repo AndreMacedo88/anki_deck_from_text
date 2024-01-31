@@ -1,3 +1,12 @@
+"""
+Contains the Anki card models to include in the deck.
+
+Implement here your own models by generating a new model id and following an Anki card
+structure.
+Then add an entry to your new model to the `MODELS` variable. Your model can now be used
+in new decks by using the option `card_model` at the command-line.
+"""
+
 import genanki
 import random
 

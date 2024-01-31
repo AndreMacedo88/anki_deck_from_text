@@ -1,3 +1,7 @@
+"""
+Contains functions to go from a path to a text file to a dictionary in the format
+{question: answer}
+"""
 
 def question_answer_split(line, separator):
     line = line.lstrip("- ")
