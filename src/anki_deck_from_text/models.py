@@ -1,8 +1,8 @@
 """
-Contains the Anki card models to include in the deck.
+Contains the Anki card types (called `models`) to include in the deck.
 
 Implement here your own models by generating a new model id and following an Anki card
-structure.
+structure (refer to https://docs.ankiweb.net/getting-started.html#card-types).
 Then add an entry to your new model to the `MODELS` variable. Your model can now be used
 in new decks by using the option `card_model` at the command-line.
 """

@@ -1,8 +1,8 @@
 """
 Contains functions that take a dictionary {question: answer} and write an Anki
-package (.apkg) with a deck containing the questions and answers.
+package (.apkg) with a deck containing cards with questions and answers.
 
-The deck current available formats are:
+The current available card types (models) are:
 - "sound"
 
 Check the models.py file for all models structure and implementation
