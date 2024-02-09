@@ -17,7 +17,7 @@ CONTEXT_SETTINGS = dict(
 @click.argument("output")
 @click.argument("deck_name")
 @click.option("--separator", default="=", help="Character(s) that separate the text to be written to the front and back of the cards")
-@click.option("--marker", default="-", help="Character(s) marking that this line is to be included in the deck")
+@click.option("--marker", default="-", help="Character(s) marking this line to be included in the deck")
 @click.option("--card_model", default="sound",
               help="""Anki card model to build the deck with. Available options are:
               `sound`
