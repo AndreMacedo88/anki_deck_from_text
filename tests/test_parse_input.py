@@ -11,7 +11,8 @@ class TestQuestionAnswerSplit:
     line = "- answer = question"
     question, answer = question_answer_split(
         line=line,
-        separator=" = "
+        separator="=",
+        marker="-",
     )
 
     def test_answer(self):
@@ -25,7 +26,8 @@ class TestQuestionAnswerSplitUtf8:
     line = "- änswer = questiön"
     question, answer = question_answer_split(
         line=line,
-        separator=" = "
+        separator="=",
+        marker="-",
     )
 
     def test_answer(self):
@@ -50,6 +52,7 @@ class TestGenerateQuestionAnswerDict:
         }
         dict_results = generate_question_answer_dict(
             input=file_path,
-            separator=" = "
+            separator="=",
+            marker="-",
         )
         assert dict_results == dict_expected
