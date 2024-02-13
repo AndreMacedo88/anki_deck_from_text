@@ -54,8 +54,24 @@ Options:
   -h, --help         Show this message and exit.
 ```
 
-# Extending the tool
-## Add card types
+# Further development
+## Contributing
+To contribute to this project:
+1. [Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this project
+2. Install [Poetry](https://python-poetry.org/docs/#installation)
+3. Install [Nox](https://nox.thea.codes/en/stable/) (optional but recommended for automated tests and code formatting)
+4. Change to the project directory and run `$ poetry install`
+
+This should get your system setup to:
+- Test that your changes didn't break the tool with `$ nox` or `poetry run pytest`
+- Build with `$ poetry build` (optional)
+- Test run with `$ poetry run anki_deck_from_text ...`
+
+Once you're happy with your changes and tests:
+5. Create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) to be reviewed
+
+## Extending the tool
+### Add card types
 To add extra card types follow the instructions in the `models.py` file docstring and then update the current available card types both in the docstring of `generate_deck.py` and [in the relevant section](#current-card-types) of this README.
 
 Refer to [the Anki docs](https://docs.ankiweb.net/getting-started.html#card-types) for how to design Anki card type structures.
