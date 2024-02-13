@@ -10,6 +10,31 @@ in new decks by using the option `card_model` at the command-line.
 import genanki
 import random
 
+model_id_basic = random.randrange(1 << 30, 1 << 31)
+MODEL_BASIC = genanki.Model(
+    model_id=model_id_basic,
+    name="Basic model",
+    fields=[
+        {"name": "Question"},
+        {"name": "Answer"},
+    ],
+    templates=[
+        {
+            "name": "Card to type",
+            'qfmt': '{{Question}}',
+            'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
+        },
+    ],
+    css=""".card {
+    font-family: arial;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+"""
+)
+
 model_id_sound = random.randrange(1 << 30, 1 << 31)
 MODEL_SOUND = genanki.Model(
     model_id=model_id_sound,
@@ -36,6 +61,7 @@ MODEL_SOUND = genanki.Model(
 """
 )
 
+
 """
 NEW MODELS IMPLEMENTATION AREA STARTS HERE
 """
@@ -46,5 +72,6 @@ NEW MODELS IMPLEMENTATION AREA STOPS HERE
 """
 
 MODELS = {
+    "basic": MODEL_SOUND,
     "sound": MODEL_SOUND,
 }

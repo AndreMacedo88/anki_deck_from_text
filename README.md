@@ -18,6 +18,7 @@ Outside of these rules, you are free to populate your text file with other annot
 # Current card types
 Currently, the output deck will be populated with cards from one type at a time.
 The currently implemented types are:
+- `basic`: The basic card type in Anki. Each line's text is split between front and back of one card by the `separator`.
 - `sound`: TODO: write a short description of the sound card type
 
 # Installation
@@ -50,7 +51,7 @@ Options:
   --marker TEXT      Character(s) marking this line to be included in the deck
                      [default: -]
   --card_model TEXT  Anki card model to build the deck with. Available options
-                     are: `sound`  [default: sound]
+                     are: `basic`, `sound`  [default: basic]
   -h, --help         Show this message and exit.
 ```
 

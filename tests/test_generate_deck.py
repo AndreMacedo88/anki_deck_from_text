@@ -8,7 +8,21 @@ from anki_deck_from_text.generate_deck import create_note, generate_deck
 PARENT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
-def test_note():
+def test_note_basic():
+    note = create_note(
+        question="House",
+        answer="das Haus",
+        model_type="basic",
+    )
+
+    note.write_to_db(
+        MagicMock(), MagicMock(), MagicMock(),
+        itertools.count(int(time.time() * 1000))
+    )
+    # test passes if code gets to here without raising
+
+
+def test_note_sound():
     note = create_note(
         question="House",
         answer="das Haus",
