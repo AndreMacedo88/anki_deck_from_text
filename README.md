@@ -18,11 +18,11 @@ Outside of these rules, you are free to populate your text file with other annot
 # Current card types
 Currently, the output deck will be populated with cards from one type at a time.
 The currently implemented types are:
-- `basic`: The basic card type in Anki. Each line's text is split between front and back of one card by the `separator`.
-- `sound`: TODO: write a short description of the sound card type
+- `basic`: The [Basic](https://docs.ankiweb.net/getting-started.html#card-types) card type in Anki. Each line's text is split between front and back of one card by the `separator`
+- `sound`: Similar to the [Basic (type in the answer)](https://docs.ankiweb.net/getting-started.html#card-types) card type, but with an added empty field on the back of the card that can be filled up afterwards with (for example) sound files by using an add-on such as [HyperTTS](https://ankiweb.net/shared/info/111623432)
 
 # Installation
-Make sure you have python installed (recommended version >= 3.10) and then run in the terminal/command-line:
+Make sure you have python installed (recommended version >= 3.12) and then run in the terminal/command-line:
 ```
 pip install anki_deck_from_text
 ```
