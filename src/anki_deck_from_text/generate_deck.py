@@ -11,17 +11,25 @@ Check the models.py file for all models structure and implementation
 
 import random
 import genanki
-from anki_deck_from_text.models import MODELS
+from anki_deck_from_text.models import MODELS, EXTRA_FIELDS
 
 
 def create_note(question, answer, model_type):
     model = MODELS.get(model_type)
+    extra_fields = EXTRA_FIELDS.get(model_type)
+
     if model is None:
         raise ValueError("model_type does not exist in the current models.")
-    note = genanki.Note(
-        model=model,
-        fields=[question, answer, ""]
-    )
+    elif extra_fields:
+        note = genanki.Note(
+            model=model,
+            fields=[question, answer, *extra_fields]
+        )
+    else:
+        note = genanki.Note(
+            model=model,
+            fields=[question, answer]
+        )
     return note
 
 

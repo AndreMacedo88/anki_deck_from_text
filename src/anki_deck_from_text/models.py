@@ -3,8 +3,12 @@ Contains the Anki card types (called `models`) to include in the deck.
 
 Implement here your own models by generating a new model id and following an Anki card
 structure (refer to https://docs.ankiweb.net/getting-started.html#card-types).
-Then add an entry to your new model to the `MODELS` variable. Your model can now be used
-in new decks by using the option `card_model` at the command-line.
+Then add an entry to your new model to the `MODELS` variable and any field that is not 
+`question` or `answer` in the EXTRA_FIELDS variable. An example is the `sound` model 
+which must specify an extra empty field that will later contain a sound file.
+
+Your model can now be used in new decks by using the option `card_model` at the 
+command-line.
 """
 
 import genanki
@@ -72,6 +76,11 @@ NEW MODELS IMPLEMENTATION AREA STOPS HERE
 """
 
 MODELS = {
-    "basic": MODEL_SOUND,
+    "basic": MODEL_BASIC,
     "sound": MODEL_SOUND,
+}
+
+EXTRA_FIELDS = {
+    "basic": [],
+    "sound": [""],
 }
