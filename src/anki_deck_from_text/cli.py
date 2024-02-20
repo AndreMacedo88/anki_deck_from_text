@@ -24,12 +24,17 @@ CONTEXT_SETTINGS = dict(
               `sound`
               """
               )
-def cli(input, output, deck_name, separator, card_model):
-    """Generate and Anki deck from annotations on a text file"""
+def cli(input, output, deck_name, separator, marker, card_model):
+    """Generate and Anki deck from annotations on a text file.\n
+    INPUT is the text file.
+    OUTPUT is the desired name for the .apkg file with the deck.
+    DECK_NAME is the deck name that will be displayed in Anki.
+    """
 
     question_answer_dict = generate_question_answer_dict(
         input=input,
         separator=separator,
+        marker=marker,
     )
 
     deck = generate_deck(
