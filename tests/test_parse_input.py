@@ -37,17 +37,46 @@ class TestQuestionAnswerSplitUtf8:
         assert self.question == "questiön"
 
 
+class TestQuestionAnswerSplitLatin:
+    line = "- énswer = questiõn"
+    question, answer = question_answer_split(
+        line=line,
+        separator="=",
+        marker="-",
+    )
+
+    def test_answer(self):
+        assert self.answer == "énswer"
+
+    def test_question(self):
+        assert self.question == "questiõn"
+
+
 @pytest.mark.parametrize(
     argnames="file_name",
     argvalues=["test_md.md", "test_txt.txt"]
 )
 class TestGenerateQuestionAnswerDict:
-    file_str = os.path.join(PARENT_DIR, "test_md.md")
 
     def test_dict(self, file_name):
         file_path = os.path.join(PARENT_DIR, file_name)
         dict_expected = {
             "the girls": "die Mädchen",
+            "the house": "das Haus"
+        }
+        dict_results = generate_question_answer_dict(
+            input=file_path,
+            separator="=",
+            marker="-",
+        )
+        assert dict_results == dict_expected
+
+
+class TestGenerateQuestionAnswerDictASCII:
+    def test_dict(self):
+        file_path = os.path.join(PARENT_DIR, "test_txt_ascii.txt")
+        dict_expected = {
+            "the girls": "die Madchen",
             "the house": "das Haus"
         }
         dict_results = generate_question_answer_dict(
