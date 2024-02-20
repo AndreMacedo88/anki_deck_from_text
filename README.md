@@ -43,7 +43,11 @@ You will get the following documentation:
 ```
 anki_deck_from_text [OPTIONS] INPUT OUTPUT DECK_NAME
 
-  Generate and Anki deck from annotations on a text file
+  Generate and Anki deck from annotations on a text file.
+
+  INPUT is the text file. OUTPUT is the desired name for the .apkg file with
+  the deck. DECK_NAME is the deck name that will be displayed in Anki.
+
 
 Options:
   --separator TEXT   Character(s) that separate the text to be written to the
