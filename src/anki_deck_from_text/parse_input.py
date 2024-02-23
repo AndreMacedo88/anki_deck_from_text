@@ -6,48 +6,25 @@ from pathlib import Path
 import chardet
 
 
-def detect_encoding(filename):
-    """Detect encoding and return encoding and confidence level."""
-    filepath = Path(filename)
-
-    # We must read as binary (bytes) because we don't yet know the encoding
-    file_binary = filepath.read_bytes()
-
-    detection = chardet.detect(file_binary)
-    encoding = detection["encoding"]
-    confidence = detection["confidence"]
-
-    return encoding, confidence
-
-
-def question_answer_split(line, separator, marker):
-    line = line.lstrip(marker)
-    answer, question = line.split(separator)
-    return question.strip(), answer.strip()
-
-
-def generate_question_answer_dict(input, separator, marker):
-    cards_details = dict()
+def generate_question_answer_dict(file_path, separator, marker):
     try:
         # we try to open the file first assuming UTF-8
-        with open(input, "r", encoding="utf-8") as file_obj:
-            cards_details = fill_question_answer_dict(
-                file_obj=file_obj,
-                cards_details=cards_details,
+        cards_details = get_card_details(
+            file_path=file_path,
+            encoding="UTF-8",
+            marker=marker,
+            separator=separator,
+        )
+    except UnicodeEncodeError:
+        # if UTF-8 is incorrect, incur a performance penalty trying to decode
+        encoding, confidence = detect_encoding(file_path)
+        try:
+            cards_details = get_card_details(
+                file_path=file_path,
+                encoding=encoding,
                 marker=marker,
                 separator=separator,
             )
-    except UnicodeEncodeError:
-        # if UTF-8 is incorrect, incur a performance penalty trying to decode
-        encoding, confidence = detect_encoding(input)
-        try:
-            with open(input, "r", encoding=encoding) as file_obj:
-                cards_details = fill_question_answer_dict(
-                    file_obj=file_obj,
-                    cards_details=cards_details,
-                    marker=marker,
-                    separator=separator,
-                )
         except UnicodeEncodeError as err:
             message = (
                 "File encoding not able to be automatically determined. ",
@@ -56,7 +33,7 @@ def generate_question_answer_dict(input, separator, marker):
                 "Please try to encode your file in UTF-8 and re-run."
             )
             raise err(message)
-        if confidence > 0.6:
+        if confidence < 0.6:
             print(
                 (
                     "File encoding not able to be automatically determined. ",
@@ -69,6 +46,17 @@ def generate_question_answer_dict(input, separator, marker):
             )
 
     return cards_details
+
+
+def get_card_details(file_path, encoding, marker, separator):
+    cards_details = dict()
+    with open(file_path, "r", encoding=encoding) as file_obj:
+        return fill_question_answer_dict(
+            file_obj=file_obj,
+            cards_details=cards_details,
+            marker=marker,
+            separator=separator,
+        )
 
 
 def fill_question_answer_dict(file_obj, cards_details, marker, separator):
@@ -84,3 +72,23 @@ def fill_question_answer_dict(file_obj, cards_details, marker, separator):
         )
         cards_details[question] = answer
     return cards_details
+
+
+def question_answer_split(line, separator, marker):
+    line = line.lstrip(marker)
+    answer, question = line.split(separator)
+    return question.strip(), answer.strip()
+
+
+def detect_encoding(file_path):
+    """Detect encoding and return encoding and confidence level."""
+    file_path = Path(file_path)
+
+    # We must read as binary (bytes) because we don't yet know the encoding
+    file_binary = file_path.read_bytes()
+
+    detection = chardet.detect(file_binary)
+    encoding = detection["encoding"]
+    confidence = detection["confidence"]
+
+    return encoding, confidence

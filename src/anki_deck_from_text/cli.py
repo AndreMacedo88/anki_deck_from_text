@@ -32,7 +32,7 @@ def cli(input, output, deck_name, separator, marker, card_model):
     """
 
     question_answer_dict = generate_question_answer_dict(
-        input=input,
+        file_path=input,
         separator=separator,
         marker=marker,
     )

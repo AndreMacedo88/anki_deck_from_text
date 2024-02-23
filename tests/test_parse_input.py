@@ -65,7 +65,7 @@ class TestGenerateQuestionAnswerDict:
             "the house": "das Haus"
         }
         dict_results = generate_question_answer_dict(
-            input=file_path,
+            file_path=file_path,
             separator="=",
             marker="-",
         )
@@ -80,7 +80,7 @@ class TestGenerateQuestionAnswerDictASCII:
             "the house": "das Haus"
         }
         dict_results = generate_question_answer_dict(
-            input=file_path,
+            file_path=file_path,
             separator="=",
             marker="-",
         )
