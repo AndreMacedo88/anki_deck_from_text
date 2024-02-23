@@ -72,16 +72,16 @@ class TestGenerateQuestionAnswerDict:
         assert dict_results == dict_expected
 
 
-# class TestGenerateQuestionAnswerDictASCII:
-#     def test_dict(self):
-#         file_path = os.path.join(PARENT_DIR, "txt_latin1.txt")
-#         dict_expected = {
-#             "the girls": "die Médchen",
-#             "the house": "das Haus"
-#         }
-#         dict_results = generate_question_answer_dict(
-#             file_path=file_path,
-#             separator="=",
-#             marker="-",
-#         )
-#         assert dict_results == dict_expected
+class TestGenerateQuestionAnswerDictASCII:
+    def test_dict(self):
+        file_path = os.path.join(PARENT_DIR, "txt_latin1.txt")
+        dict_expected = {
+            "the girls": "die Médchen",
+            "the house": "das Haus"
+        }
+        dict_results = generate_question_answer_dict(
+            file_path=file_path,
+            separator="=",
+            marker="-",
+        )
+        assert dict_results == dict_expected

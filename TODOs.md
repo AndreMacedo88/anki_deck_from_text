@@ -4,4 +4,3 @@
   - get_card_details()
   - fill_question_answer_dict()
   - detect_encoding()
-> use also a latin1 encoded file for testing

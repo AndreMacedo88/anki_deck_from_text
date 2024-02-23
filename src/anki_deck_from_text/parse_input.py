@@ -15,7 +15,7 @@ def generate_question_answer_dict(file_path, separator, marker):
             marker=marker,
             separator=separator,
         )
-    except UnicodeEncodeError:
+    except UnicodeDecodeError:
         # if UTF-8 is incorrect, incur a performance penalty trying to decode
         encoding, confidence = detect_encoding(file_path)
         try:
@@ -25,14 +25,14 @@ def generate_question_answer_dict(file_path, separator, marker):
                 marker=marker,
                 separator=separator,
             )
-        except UnicodeEncodeError as err:
+        except UnicodeDecodeError as err:
             message = (
                 "File encoding not able to be automatically determined. ",
                 f"Estimated encoding is {encoding} ",
                 f"with confidence of {confidence}. ",
                 "Please try to encode your file in UTF-8 and re-run."
             )
-            raise err(message)
+            raise UnicodeDecodeError(message) from err
         if confidence < 0.6:
             print(
                 (
