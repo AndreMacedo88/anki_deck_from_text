@@ -22,7 +22,7 @@ The currently implemented types are:
 - `sound`: Similar to the [Basic (type in the answer)](https://docs.ankiweb.net/getting-started.html#card-types) card type, but with an added empty field on the back of the card that can be filled up afterwards with (for example) sound files by using an add-on such as [HyperTTS](https://ankiweb.net/shared/info/111623432)
 
 # Installation
-Make sure you have python installed (recommended version >= 3.12) and then run in the terminal/command-line:
+Make sure you have python installed (version >= 3.12) and then run in the terminal/command-line:
 ```
 pip install anki_deck_from_text
 ```
