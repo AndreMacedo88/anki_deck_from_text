@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 genanki = "^0.13.1"
 click = "^8.1.7"
+chardet = "^5.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
