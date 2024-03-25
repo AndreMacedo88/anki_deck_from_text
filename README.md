@@ -19,7 +19,7 @@ Outside of these rules, you are free to populate your text file with other annot
 Currently, the output deck will be populated with cards from one type at a time.
 The currently implemented types are:
 - `basic`: The [Basic](https://docs.ankiweb.net/getting-started.html#card-types) card type in Anki. Each line's text is split between front and back of one card by the `separator`
-- `sound`: Similar to the [Basic (type in the answer)](https://docs.ankiweb.net/getting-started.html#card-types) card type, but with an added empty field on the back of the card that can be filled up afterwards with (for example) sound files by using an add-on such as [HyperTTS](https://ankiweb.net/shared/info/111623432)
+- `sound`: Similar to the [Basic (type in the answer)](https://docs.ankiweb.net/getting-started.html#card-types) card type, but with an added empty field on the back of the card that can be filled up afterwards with (for example) sound files by using an add-on such as [HyperTTS](https://ankiweb.net/shared/info/111623432). Note that this card type can also be used without filling up the sound field, thereby behaving as a `Basic (type in the answer)` card type.
 
 # Installation
 Make sure you have python installed (version >= 3.12) and then run in the terminal/command-line:
@@ -55,7 +55,7 @@ Options:
   --marker TEXT      Character(s) marking this line to be included in the deck
                      [default: -]
   --card_model TEXT  Anki card model to build the deck with. Available options
-                     are: `basic`, `sound`  [default: basic]
+                     are: basic, sound  [default: basic]
   -h, --help         Show this message and exit.
 ```
 
@@ -68,11 +68,12 @@ To contribute to this project:
 4. Change to the project directory and run `$ poetry install`
 
 This should get your system setup to:
-- Test that your changes didn't break the tool with `$ nox` or `poetry run pytest`
+- Test that your changes didn't break the tool with `$ nox` or `$ poetry run pytest`
 - Build with `$ poetry build` (optional)
-- Test run with `$ poetry run anki_deck_from_text ...`
+- Test run with `$ poetry run anki_deck_from_text [OPTIONS] INPUT OUTPUT DECK_NAME`
 
 Once you're happy with your changes and tests:
+
 5. Create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) to be reviewed
 
 ## Extending the tool
