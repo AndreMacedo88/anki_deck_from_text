@@ -28,6 +28,7 @@ jobs:
         run: poetry install
 
       - name: Check formatting
+        if: matrix.python-version == '3.12'
         run: poetry run autopep8 --diff --recursive --exit-code src/ tests/
 
       - name: Run tests
