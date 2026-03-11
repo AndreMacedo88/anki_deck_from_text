@@ -1,0 +1,74 @@
+site_name: anki_deck_from_text
+site_url: https://andremacedo88.github.io/anki_deck_from_text/
+site_description: Generate Anki flashcard decks from annotated text files
+site_author: Andre Macedo
+repo_url: https://github.com/AndreMacedo88/anki_deck_from_text
+repo_name: AndreMacedo88/anki_deck_from_text
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            separate_signature: true
+            members_order: source
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - User Guide:
+      - Input Format: guide/input-format.md
+      - CLI Usage: guide/cli-usage.md
+      - Card Types: guide/card-types.md
+      - Examples: guide/examples.md
+  - API Reference:
+      - Overview: api/index.md
+      - cli: api/cli.md
+      - parse_input: api/parse_input.md
+      - generate_deck: api/generate_deck.md
+      - models: api/models.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md

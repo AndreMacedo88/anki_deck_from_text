@@ -3,5 +3,6 @@
 .pytest*
 __pycache__/
 dist/
+site/
 CLAUDE.md
 RELEASE.md

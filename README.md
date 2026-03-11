@@ -1,6 +1,7 @@
 # anki_deck_from_text
 
 [![CI Tests](https://github.com/AndreMacedo88/anki_deck_from_text/actions/workflows/ci-tests.yml/badge.svg)](https://github.com/AndreMacedo88/anki_deck_from_text/actions/workflows/ci-tests.yml)
+[![Docs](https://github.com/AndreMacedo88/anki_deck_from_text/actions/workflows/deploy-docs.yml/badge.svg)](https://andremacedo88.github.io/anki_deck_from_text/)
 [![PyPI version](https://img.shields.io/pypi/v/anki_deck_from_text)](https://pypi.org/project/anki_deck_from_text/)
 [![Python versions](https://img.shields.io/pypi/pyversions/anki_deck_from_text)](https://pypi.org/project/anki_deck_from_text/)
 [![License](https://img.shields.io/github/license/AndreMacedo88/anki_deck_from_text)](https://github.com/AndreMacedo88/anki_deck_from_text/blob/main/LICENSE)
@@ -111,3 +112,7 @@ Once you're happy with your changes and tests:
 To add extra card types follow the instructions in the `models.py` file docstring and then update the current available card types both in the docstring of `generate_deck.py` and [in the relevant section](#current-card-types) of this README.
 
 Refer to [the Anki docs](https://docs.ankiweb.net/getting-started.html#card-types) for how to design Anki card type structures.
+
+# Documentation
+
+Full documentation is available at **[andremacedo88.github.io/anki_deck_from_text](https://andremacedo88.github.io/anki_deck_from_text/)**.
