@@ -3,3 +3,5 @@
 .pytest*
 __pycache__/
 dist/
+CLAUDE.md
+RELEASE.md
