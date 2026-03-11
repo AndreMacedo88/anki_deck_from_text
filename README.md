@@ -58,22 +58,29 @@ anki_deck_from_text --help
 You will get the following documentation:
 
 ```
-anki_deck_from_text [OPTIONS] INPUT OUTPUT DECK_NAME
+Usage: anki_deck_from_text [OPTIONS] INPUT OUTPUT DECK_NAME
 
-  Generate and Anki deck from annotations on a text file.
+  Generate an Anki deck from annotations on a text file.
 
   INPUT is the text file. OUTPUT is the desired name for the .apkg file with
   the deck. DECK_NAME is the deck name that will be displayed in Anki.
 
-
 Options:
-  --separator TEXT   Character(s) that separate the text to be written to the
-                     front and back of the cards  [default: =]
-  --marker TEXT      Character(s) marking this line to be included in the deck
-                     [default: -]
-  --card_model TEXT  Anki card model to build the deck with. Available options
-                     are: basic, sound  [default: basic]
-  -h, --help         Show this message and exit.
+  --version                   Show the version and exit.
+  --separator TEXT            Character(s) that separate the text to be
+                              written to the front and back of the cards
+                              [default: =]
+  --marker TEXT               Character(s) marking this line to be included in
+                              the deck  [default: -]
+  --card_model [basic|sound]  Anki card model to build the deck with
+                              [default: basic]
+  --reverse                   Swap front and back of each card
+  --dry-run, --preview        Preview cards that would be generated without
+                              writing a file
+  --tags TEXT                 Comma-separated tags to add to all cards
+  -i, --extra-input PATH      Additional input files to merge into the deck
+                              (repeatable)
+  -h, --help                  Show this message and exit.
 ```
 
 # Further development

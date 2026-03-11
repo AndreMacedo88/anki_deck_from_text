@@ -7,7 +7,7 @@ APP_DIR = os.path.join("src", "anki_deck_from_text")
 nox.options.reuse_existing_virtualenvs = True
 
 
-@nox_poetry.session(python=["3.11", "3.12"])
+@nox_poetry.session(python=["3.12", "3.13"])
 def tests(session):
     session.install("pytest", ".")
     session.run("pytest")

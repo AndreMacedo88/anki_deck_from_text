@@ -4,6 +4,15 @@ version = "1.3.4"
 description = "Generate an Anki deck from annotations on a text file"
 authors = ["Andre Macedo <andre.lopes.macedo@gmail.com>"]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/AndreMacedo88/anki_deck_from_text"
+keywords = ["anki", "flashcards", "deck", "language-learning"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Education",
+    "Topic :: Education",
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -20,6 +29,9 @@ pytest = "^7.4.3"
 
 [tool.poetry.scripts]
 anki_deck_from_text = "anki_deck_from_text.cli:cli"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
 
 [build-system]
 requires = ["poetry-core"]

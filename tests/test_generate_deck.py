@@ -1,11 +1,14 @@
 import os
+import tempfile
 import pytest
 from unittest.mock import MagicMock
 import itertools
 import time
-from anki_deck_from_text.generate_deck import create_note, generate_deck
+from anki_deck_from_text.generate_deck import (
+    create_note, generate_deck, write_package,
+)
 
-PARENT_DIR = os.path.dirname(os.path.realpath(__file__))
+TEST_DATA_DIR = os.path.join(os.path.dirname(__file__), "test_data")
 
 
 def test_note_basic():
@@ -72,3 +75,29 @@ class TestGenerateDeckTypeSound():
     def test_notes_model(self, deck_test):
         models_name = [note.model.name for note in deck_test.notes]
         assert models_name == ["Sound model", "Sound model"]
+
+
+class TestWritePackage:
+    def test_creates_apkg_file(self):
+        qa_dict = {"front": "back"}
+        deck = generate_deck(
+            question_answer_dict=qa_dict,
+            deck_name="test",
+            card_model="basic",
+        )
+        with tempfile.TemporaryDirectory() as tmpdir:
+            out_path = os.path.join(tmpdir, "output")
+            write_package(deck, out_path)
+            assert os.path.exists(f"{out_path}.apkg")
+
+    def test_handles_apkg_suffix(self):
+        qa_dict = {"front": "back"}
+        deck = generate_deck(
+            question_answer_dict=qa_dict,
+            deck_name="test",
+            card_model="basic",
+        )
+        with tempfile.TemporaryDirectory() as tmpdir:
+            out_path = os.path.join(tmpdir, "output.apkg")
+            write_package(deck, out_path)
+            assert os.path.exists(out_path)
